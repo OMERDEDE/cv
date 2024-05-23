@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <style>
+      body {
+        background-color: #e0f7fa;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        font-family: "Dancing Script", cursive;
+        font-size: 16px;
+      }
+
+      .center {
+        display: flex;
+        flex-direction: column;
+        align-items: left;
+        background-color: hsl(200, 87%, 85%);
+        width: 50%;
+        padding: 30px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        border-radius: 12px;
+      }
+
+      .button {
+        background-color: #bd5d38;
+        color: white;
+        margin-left:30%;
+        text-align: center;
+        text-decoration: none;
+        font-size: 25px;
+        cursor: pointer;
+        border-radius: 12px;
+        font-family: "Dancing Script", cursive;
+        transition: background-color 0.3s, transform 0.3s;
+        width: 40%;
+      }
+
+      .button:hover {
+        background-color: #fb8c00;
+        transform: scale(1.05);
+      }
+
+      .button:active {
+        background-color: #ef6c00;
+        transform: scale(0.95);
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="center">
+      <h1>Yorumlar</h1>
+      {% for item in comments %}
+      <section>
+        <div class="comment-section">
+          <h1 class="comment-section">
+            <span>{{ item.name }}</span>
+          </h1>
+          <p>{{ item.comment }}</p>
+        </div>
+      </section>
+      {% endfor %}
+      <br>
+      <button
+      class="button"
+      onclick="window.location.href='http://127.0.0.1:8000/homepage/'"
+    >
+      Ana sayfaya dön
+    </button>
+    </div>
+  </body>
+</html>

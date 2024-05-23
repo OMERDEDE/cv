@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <style>
+      body {
+        background-color: #e0f7fa;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        font-family: "Dancing Script", cursive;
+        font-size: 16px;
+      }
+      .form-login {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+      }
+      .center {
+        height: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: hsl(200, 87%, 85%);
+        width: 70%;
+        padding: 30px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        border-radius: 12px;
+      }
+      .form-group {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+      }
+      .form-group input {
+        width: 80%;
+        border-radius: 12px;
+        font-size: 16px;
+      }
+      .button-container {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        gap:20px
+      }
+      .button-container button {
+        background-color: #bd5d38;
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        cursor: pointer;
+        border-radius: 12px;
+        font-family: "Dancing Script", cursive;
+        transition: background-color 0.3s, transform 0.3s;
+        width: 40%;
+        
+      }
+      .button-container button:hover {
+        background-color: #fb8c00;
+        transform: scale(1.05);
+      }
+      .button-container button:active {
+        background-color: #ef6c00;
+        transform: scale(0.95);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="center">
+      <form method="post" class="form-login" action="/login"> 
+        {% csrf_token %} {{ serializer.as_p }}
+        <h1>Make Your Own CV</h1>
+        <div class="form-group">
+          <label for="username">Username:</label>
+          <input type="text" id="username" name="username" />
+        </div>
+        <div class="form-group">
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" />
+        </div>
+        <div class="button-container">
+          <button class="custom-button" type="submit">Giriş Yap</button>
+          <button
+            class="custom-button"
+            type="button"
+            onclick="window.location.href='http://127.0.0.1:8000/register/'"
+          >
+            Kayıt Ol
+          </button>
+          <button
+            class="custom-button"
+            type="button"
+            onclick="window.location.href='http://127.0.0.1:8000/admin/'"
+          >
+            Admin Girişi
+          </button>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

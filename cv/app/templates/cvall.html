@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style>
+      body {
+        background-color: #e0f7fa;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        font-family: "Dancing Script", cursive;
+        font-size: 16px;
+      }
+      .form-login {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+      }
+      .center {
+        height: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: hsl(200, 87%, 85%);
+        width: 70%;
+        padding: 30px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        border-radius: 12px;
+      }
+      .form-group {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+      }
+      .form-group input {
+        width: 80%;
+        border-radius: 12px;
+        font-size: 16px;
+      }
+      
+      .button-container {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+      }
+      .button-lower {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #bd5d38;
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        font-size: 16px;
+        cursor: pointer;
+        border-radius: 12px;
+        font-family: "Dancing Script", cursive;
+        transition: background-color 0.3s, transform 0.3s;
+        width: 60%;
+        margin: 20px auto; /* Center the button horizontally */
+      }
+
+      .button-lower a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #bd5d38;
+        color: white;
+        padding: 15px 32px;
+        text-decoration: none;
+        font-size: 16px;
+        cursor: pointer;
+        border-radius: 12px;
+        font-family: "Dancing Script", cursive;
+        transition: background-color 0.3s, transform 0.3s;
+        width: 150%;
+      }
+
+      .button-lower a:hover {
+        background-color: #fb8c00;
+        transform: scale(1.05);
+      }
+      .button-lower a:active {
+        background-color: #ef6c00;
+        transform: scale(0.95);
+      }
+      
+      .button-container a {
+        background-color: #bd5d38;
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        cursor: pointer;
+        border-radius: 12px;
+        font-family: "Dancing Script", cursive;
+        transition: background-color 0.3s, transform 0.3s;
+        width: 40%;
+      }
+      .button-container a:hover {
+        background-color: #fb8c00;
+        transform: scale(1.05);
+      }
+      .button-container a:active {
+        background-color: #ef6c00;
+        transform: scale(0.95);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container-fluid p-0">
+      <ul class="list-group about-me-list">
+        {% for cv in about_me %}
+        <li class="list-group-item">
+          <h1>
+            <span class="text-primary">{{ cv.full_name }}</span>
+          </h1>
+          <div class="subheading mb-3">
+            {{ cv.address }}, {{ cv.phone_number }} ·
+            <a href="mailto:{{ cv.email }}">{{ cv.email }}</a>
+          </div>
+          <p class="lead mb-0">{{ cv.additional_information }}</p>
+          <div class="button-container">
+            <a href="{% url 'cv_detail' cv.id %}" class="btn btn-primary"
+              >İlgili CV'ye git</a
+            >
+            <a href="{% url 'update_cv' cv.id %}" class="btn btn-primary"
+              >İlgili CV'yi düzenle</a
+            >
+          </div>
+        </li>
+        {% endfor %}
+      </ul>
+      <div class="button-lower">
+        <a href="http://127.0.0.1:8000/homepage/">Ana Sayfaya Dön</a>
+      </div>
+    </div>
+  </body>
+</html>
