@@ -45,3 +45,10 @@ class CVSerializer(serializers.ModelSerializer):
     class Meta:
         model = CV
         fields = '__all__'
+
+
+
+"""
+MODELİ JSON (JavaScript Object Notation) FORMATINA ÇEVİRİYOR
+
+"""
